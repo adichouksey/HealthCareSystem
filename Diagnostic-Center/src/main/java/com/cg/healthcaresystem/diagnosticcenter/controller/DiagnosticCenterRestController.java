@@ -76,8 +76,8 @@ public class DiagnosticCenterRestController {
 		DiagnosticCenter center = new DiagnosticCenter();
 		// center.setCenterId(reqDto.getCenterId());
 		center.setCenterName(reqDto.getCenterName());
-		center.setListOfTests(reqDto.getListOfTests());
-		center.setAppointments(reqDto.getAppointments());
+		//center.setListOfTests(reqDto.getListOfTests());
+		//center.setAppointments(reqDto.getAppointments());
 		center = service.addDiagnosticCenter(center);
 		CenterDetailsDto dto = CenterUtil.convertToDetailsDto(center);
 		ResponseEntity<CenterDetailsDto> response = new ResponseEntity<>(dto, HttpStatus.OK);
