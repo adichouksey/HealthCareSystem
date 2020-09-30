@@ -1,0 +1,50 @@
+<br>
+<h3>MODIFICATION OF TEST DETAILS</h3>
+<div>
+    <div class="container">
+        
+<form class="in-line" #data="ngForm"  (ngSubmit)="data.valid && modifyTest(data)">
+    <div>
+        <br>   
+    <label>TEST ID</label>
+     <input type="text" class="form-control" placeholder="ENTER TEST ID " ngModel name="testId">
+    </div>
+
+    <div>
+        <br>
+        <label>TEST NAME</label>
+        <input type="text" pattern="[a-zA-z\s]+" title="valid name only" class="form-control"   placeholder="ENTER TEST NAME " ngModel name="testName">
+        </div>    
+<br>
+<div>
+<button class="btn btn-success" type="submit">Modify Test</button>
+</div>
+</form>
+</div>
+</div>
+<br>
+<div *ngIf="modifiedTest!==null">
+    <div *ngIf="errorFeild===null">
+        <div class="alert alert-success alert-dismissible ">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3>TEST DETAILS MODIFIED</h3>  
+     <br> ID= {{modifiedTest.testId}}
+     <br> TEST NAME={{modifiedTest.testName}}
+    </div>
+</div>
+
+<br>
+<div *ngIf="errorFeild!==null">
+    <div class="alert alert-danger alert-dismissible ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3> <b> Error</b> !! </h3>
+   <div *ngFor="let item of errorFeild | keyvalue | slice:0:1"> 
+   <br>{{item.value}}
+   </div> 
+    <br>With name
+    <br> {{modifiedTest.testName}}
+</div>
+</div> 
+</div>
+    <br>
+    <a href=""  class="btn btn-primary" role="button" routerLink="../testmgt">Previous</a>

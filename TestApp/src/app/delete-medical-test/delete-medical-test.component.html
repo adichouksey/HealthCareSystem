@@ -1,0 +1,19 @@
+<h1>Product List</h1>
+<table border="1" class="table">
+    <thead>
+    <tr>
+        <th scope="col">TEST ID</th>
+        <th scope="col">TEST NAME</th>
+        <th scope="col">REMOVE TEST</th>
+    </tr>
+</thead>
+<tr *ngFor="let test of tests">
+    <td>{{test.testId}}</td>
+    <td>{{test.testName}}</td>
+
+    <td><button class="btn btn-danger"(click)="removeTest(test.testId)">DELETE</button></td> 
+    
+</tr>
+</table>
+<br>
+<a href=""  class="btn btn-primary" role="button" routerLink="../testmgt">Previous</a>

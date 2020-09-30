@@ -1,0 +1,64 @@
+<br>
+<h2> MEDICAL TEST DETAILS </h2>
+<div>
+    <div class="container">
+        
+   <form class="in-line" #data="ngForm"  (ngSubmit)="data.valid && addTest(data)">
+  
+    <div>
+         <br>
+                    <label>TEST NAME</label>
+                    <input type="text" pattern="[a-zA-z\s]+" title="valid name only" class="form-control" name="testName" placeholder="ENTER TEST NAME " ngModel  #testNameCtrl=ngModel required >
+                    
+                        
+    
+                       
+                </div>
+                
+                
+                
+<br>
+
+<div>
+    <button class="btn btn-success" type="submit">Add Medical Test</button>
+</div>  
+
+
+      
+</form>
+ </div>
+</div>
+
+
+<br>
+
+<div *ngIf="addedTest!==null">
+    <div *ngIf="errorFeild===null">
+        <div class="alert alert-success alert-dismissible ">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>SUCCESS!</strong> MEDICAL TEST ADDED
+          
+    
+     <br> ID= {{addedTest.testId}}
+     <br> Test Name={{addedTest.testName}}
+    </div>
+    </div>
+</div>
+
+
+
+
+<div *ngIf="errorFeild!==null">
+    <div class="alert alert-danger alert-dismissible ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+<h3> <b> Error</b> !! </h3>
+       <div *ngFor="let item of errorFeild | keyvalue | slice:0:1"> 
+        <div class="alert alert-danger" role="alert">
+            <b>{{item.value}}</b>
+       </div> 
+        <b>With Name</b>
+        <b> {{addedTest.testName}}</b>
+    </div>        
+  </div>
+<br>
+<a href=""  class="btn btn-primary" role="button" routerLink="../testmgt">Previous</a>

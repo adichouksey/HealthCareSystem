@@ -1,0 +1,37 @@
+<br>
+
+<form  #data ="ngForm"  (ngSubmit)="data.valid && findTest(data)">
+    <div>
+        <h1>FIND TEST</h1>
+        <div>
+            <label>TEST ID</label>
+            <input type="text" class="form-control" name="testId" placeholder="ENTER TEST ID " ngModel  #testIdCtrl=ngModel required >
+            <div *ngIf="testIdCtrl.errors!=null && testIdCtrl.errors.required">
+                 required
+            </div>
+            
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-success" type="submit">Find Test</button>
+</form>
+<br>
+<div *ngIf="foundStatus==='found'">
+    <div class="alert alert-success alert-dismissible ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <br>TEST FOUND SUCCESSFULLY!!
+    <br> ID= {{foundTest.testId}}
+    <br> TEST NAME={{foundTest.testName}}
+</div>
+</div>
+
+<br>
+<div *ngIf="foundStatus=='notfound'">
+    <div class="alert alert-danger alert-dismissible ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p>TEST NOT FOUND FOR THESE ID!</p> 
+    
+    </div>
+</div>
+    <br>
+    <a href=""  class="btn btn-primary" role="button" routerLink="../testmgt">Previous</a>
