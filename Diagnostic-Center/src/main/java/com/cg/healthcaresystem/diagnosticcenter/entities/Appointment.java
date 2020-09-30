@@ -1,7 +1,7 @@
 package com.cg.healthcaresystem.diagnosticcenter.entities;
 
 import java.math.BigInteger;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,16 +11,29 @@ import javax.persistence.OneToOne;
 @Entity
 public class Appointment {
 
-	
 	private String userId;
 	@Id
-	private BigInteger appointmentId;
+	private String appointmentId;
 	@OneToOne
 	private Test test;
 	private Date dateTime;
 	private Boolean approved;
-	@ManyToOne
-	private DiagnosticCenter center;
+	private String CenterName;
+
+	public Appointment() {
+		super();
+	}
+
+	public Appointment(String userId, String appointmentId, Test test, Date date, Boolean approved, String centerName) {
+
+		this.userId = userId;
+		this.appointmentId = appointmentId;
+		this.test = test;
+		this.dateTime = date;
+		this.approved = approved;
+		this.CenterName = centerName;
+
+	}
 
 	public String getUserId() {
 		return userId;
@@ -30,11 +43,11 @@ public class Appointment {
 		this.userId = userId;
 	}
 
-	public BigInteger getAppointmentId() {
+	public String getAppointmentId() {
 		return appointmentId;
 	}
 
-	public void setAppointmentId(BigInteger appointmentId) {
+	public void setAppointmentId(String appointmentId) {
 		this.appointmentId = appointmentId;
 	}
 
@@ -62,67 +75,12 @@ public class Appointment {
 		this.approved = approved;
 	}
 
-	public DiagnosticCenter getCenter() {
-		return center;
+	public String getCenterName() {
+		return CenterName;
 	}
 
-	public void setCenter(DiagnosticCenter center) {
-		this.center = center;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((appointmentId == null) ? 0 : appointmentId.hashCode());
-		result = prime * result + ((approved == null) ? 0 : approved.hashCode());
-		result = prime * result + ((center == null) ? 0 : center.hashCode());
-		result = prime * result + ((dateTime == null) ? 0 : dateTime.hashCode());
-		result = prime * result + ((test == null) ? 0 : test.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Appointment other = (Appointment) obj;
-		if (appointmentId == null) {
-			if (other.appointmentId != null)
-				return false;
-		} else if (!appointmentId.equals(other.appointmentId))
-			return false;
-		if (approved == null) {
-			if (other.approved != null)
-				return false;
-		} else if (!approved.equals(other.approved))
-			return false;
-		if (center == null) {
-			if (other.center != null)
-				return false;
-		} else if (!center.equals(other.center))
-			return false;
-		if (dateTime == null) {
-			if (other.dateTime != null)
-				return false;
-		} else if (!dateTime.equals(other.dateTime))
-			return false;
-		if (test == null) {
-			if (other.test != null)
-				return false;
-		} else if (!test.equals(other.test))
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
-			return false;
-		return true;
+	public void setCenterName(String centerName) {
+		CenterName = centerName;
 	}
 
 }

@@ -1,0 +1,55 @@
+<div style="background-image: url(/src/assets/Img/WhatsApp\ Image\ 2020-09-24\ at\ 3.32.29\ PM.jpeg);">
+    <h1 align="center">CENTER LIST</h1>
+<table class="table-responsive-xl" border="1">
+    <tr>
+        <th>CENTER ID </th>
+        <th>CENTER NAME</th>
+        <th colspan="3">  LIST OF TEST  </th>
+        <th colspan="10">APPOINTMENT</th>
+    </tr>
+
+    <tr *ngFor="let center of centers">
+        <td >{{center.centerId}}</td>
+        <td>{{center.centerName}}</td>
+        <td *ngFor="let test of center.listOfTests">
+           <b> TEST ID: </b>
+            {{test.testId}}
+            <b>TEST NAME: </b>
+            {{test.testName}}
+
+        </td>
+        <td *ngFor="let appointment of center.appointments">
+           <b>USER ID :</b>
+        {{appointment.userId}}
+        <b>APPOINTMENT ID :</b>
+        {{appointment.appointmentId}}
+        <b>TEST ID :</b>
+        {{appointment.test.testId}}
+        <b>TEST  NAME :</b>
+        {{appointment.test.testName}} 
+        <b>CENTER NAME :</b>
+        {{appointment.centerName}}
+        <b>DATE AND TIME </b>
+        {{appointment.dateTime}} 
+
+
+        </td>
+        <td><button class="btn btn-success"(click)="remove(center.centerId)">REMOVE</button></td> 
+        <td> <button class="btn btn-success"(click)="update(center.centerId,center.centerName)">UPDATE</button>
+
+    </tr>
+</table>
+<br>
+<li>TO ADD MORE
+    <a href="" routerLink="../add-center">ADD CENTER </a>
+
+</li>
+<li>HOME PAGE
+    <a href="" routerLink="../home">HOME </a>
+</li>
+</div>
+
+
+
+
+

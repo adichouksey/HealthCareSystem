@@ -1,0 +1,62 @@
+<div style="background-image: url(/src/assets/Img/WhatsApp\ Image\ 2020-09-24\ at\ 3.32.29\ PM.jpeg);" >
+<form class="container" #form ="ngForm"  (ngSubmit)="form.valid && findCenter(form)">
+    <div>
+       <h1>SEARCH CENTER</h1>
+       <div>
+           <label>CENTER ID</label>
+           <input type="text" class="form-control" name="centerId" placeholder="Enter CenterId:" ngModel  #centerIdCtrl=ngModel required >
+           <div *ngIf="centerIdCtrl.errors!=null && centerIdCtrl.errors.required">
+                required
+           </div>
+           
+       </div>
+   </div>
+   <br>
+   <button class="btn btn-success" type="submit">Find Center</button>
+</form>
+
+<div *ngIf="foundStatus==='found'">
+    <div class="alert alert-sucess alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <dialog style="color: lightgreen; " open>
+   centerId=   {{foundCenter.centerId}}
+   centerName= {{foundCenter.centerName}}
+</dialog>
+</div>
+</div>
+
+
+<div *ngIf="foundStatus=='notfound'">
+    <div *ngIf="errorField!==null">
+        <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <dialog style="color: red; " open>
+         <h3><b>Not Found </b>!!</h3> 
+            <div *ngFor="let item of errorField | keyvalue | slice:0:1">
+                <b>{{item.value}}</b>
+            </div>
+                </dialog>
+        </div>
+
+            
+    </div>
+
+</div>
+   
+  <br>
+   <div  >
+   <li>For Adding new Center
+       <a href="" routerLink="../add-center">Add New Center</a>
+   </li>
+   <li>HOME PAGE
+    <a href="" routerLink="../home">HOME</a>
+   </li>
+   <li>CENTER DETAILS
+    <a href="" routerLink="../list-center">VIEW CENTER</a>
+</li>
+   
+   
+   
+</div>
+</div>
+

@@ -18,7 +18,29 @@ import org.springframework.web.filter.CorsFilter;
 public class CenterManagementApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(CenterManagementApplication.class, args);
+	
 	}
 
+
+@Bean
+public RestTemplate restTemplate(){
+	RestTemplate restTemplate=new RestTemplate();
+	return restTemplate;
 }
+
+
+
+
+
+	
+  @Bean public CorsFilter corsFilter()
+  { UrlBasedCorsConfigurationSource src=new
+  UrlBasedCorsConfigurationSource(); CorsConfiguration configuration=new
+  CorsConfiguration(); configuration.setAllowCredentials(true);
+  configuration.addAllowedHeader("*"); configuration.addAllowedOrigin("*");
+  configuration.addAllowedMethod("*");
+  src.registerCorsConfiguration("/**",configuration); return new
+ CorsFilter(src); } }
+ 

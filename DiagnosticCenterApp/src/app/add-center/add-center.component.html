@@ -1,0 +1,73 @@
+<div>
+    <div class ="container" align=center>
+        
+    <form #Form ="ngForm" (ngSubmit)="Form.valid && addCenter(Form)">
+        <div >
+            <h1 align="CENTER">CENTER  DETAILS</h1><br><br>
+            
+        </div>
+        
+        <br>
+        <div>
+            <label>Center NAME</label>
+            <input type="text" pattern="[a-zA-z\s]+" title="Valid Name Only" class="form-control"  
+            name="name" placeholder="Enter Center Name" ngModel #nameCtrl=ngModel required>
+            
+        </div>
+        <br>
+        
+        <div>
+            <button class="btn btn-success" type="submit" >ADD CENTER</button>
+        </div>
+        
+        </form>
+        </div>
+        <br>
+
+        <li>VIEW CENTER
+            <a href="" routerLink="../list-center">VIEW CENTER </a>
+        </li>
+          
+        <li>SEARCH CENTER
+            <a href="" routerLink="../search-center">SEARCH CENTER </a>
+        </li>
+
+        <li>HOME PAGE
+            <a href="" routerLink="../home">HOME PAGE</a>
+        </li>
+        <br>
+        
+      <div *ngIf="addedCenter!==null">
+          <div *ngIf="errorField===null">
+              <div class="alert alert-sucess alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <dialog style="color: lightgreen; " open>
+               <h3><b>CENTER ADDED SUCESSFULLY</b></h3>
+                   <b>{{addedCenter.centerName}}</b>
+                              with <b> CENTER ID  </b>
+                   <b>{{addedCenter.centerId}}</b>
+              </dialog>
+          </div>
+          </div>
+          </div>
+       
+      <br>
+      
+        <div *ngIf= "errorField!==null">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <dialog style="color: red; " open>
+            <h3><b>ERROR </b>!!</h3> 
+            <div *ngFor="let item of errorField | keyvalue | slice:0:1">
+               <h1><b>{{item.value}}</b></h1>
+            </div>
+            <b>WITH NAME</b>
+          <H1> {{addedCenter.centerName}}
+                
+          </H1>
+          
+        </dialog>
+         </div>
+    <br>
+         
+        </div>

@@ -1,0 +1,78 @@
+<div >
+<div align="center">
+    <div align =center>
+        
+    <form  class="container" #Form ="ngForm" (ngSubmit)="Form.valid && update(Form)">
+        <div >
+            <h1> UPDATE CENTER  DETAILS</h1><br><br>
+            
+            <label>CENTER ID</label>
+            <input class="form-control" type="text" name="id" [(ngModel)]="centerId" value="{{centerId}}"  readonly required>
+            
+        </div>
+        <br>
+        <div>
+            <label>Center NAME</label>
+            <input type="text" pattern="[a-zA-z\s]+" title="Provide Name" class="form-control" pattern="[A-za-z]+" name="name" [(ngModel)]="centerName" value={{centerName}} #nameCtrl=ngModel required>
+            
+        </div>
+        <br>
+        
+        <div>
+            <button class="btn btn-success" type="submit">UPDATE CENTER</button>
+        </div>
+        </form>
+        </div>
+<br>
+
+        <li>VIEW CENTER
+            <a href="" routerLink="../list-center">VIEW CENTER </a>
+        </li>
+          
+        <li>SEARCH CENTER
+            <a href="" routerLink="../search-center">SEARCH CENTER </a>
+        </li>
+        
+        <li>HOME PAGE
+            <a href="" routerLink="../home">HOME PAGE</a>
+        </li>
+<br>
+
+
+
+        <div *ngIf="modifiedCenter!==null">
+            <div *ngIf="errorField===null">
+                <div class="alert alert-sucess alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <dialog style="color: lightgreen; " open>
+            <h1><b> Center Name Modified</b></h1>
+            <h1><b>
+                {{modifiedCenter.centerName}}
+                {{modifiedCenter.centerId}}
+            </b></h1>
+            </dialog>
+        </div>
+        </div>
+        
+      </div>
+
+        
+        <div *ngIf= "errorField!==null">
+            <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <dialog style="color: red; " open>
+            <h3><b>ERROR </b>!!</h3> 
+            <div *ngFor="let item of errorField | keyvalue | slice:0:1">
+               <h1><b>{{item.value}}</b></h1>
+            </div>
+            <b>WITH NAME</b>
+          <H1> {{modifiedCenter.centerName}}</H1>
+          </dialog>
+         </div>
+         
+
+
+<br>
+
+
+</div>

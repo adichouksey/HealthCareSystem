@@ -12,12 +12,10 @@ public class DiagnosticCenter {
 	@Id
 	private String centerId;
 
-	@OneToMany
+	@OneToMany()
 	private List<Test> listOfTests;
 
-	// private List<String> listOfTests;
-
-	@OneToMany(mappedBy = "center")
+	@OneToMany()
 	private List<Appointment> appointments;
 
 	public DiagnosticCenter() {

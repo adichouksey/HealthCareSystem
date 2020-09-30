@@ -1,16 +1,29 @@
 package com.cg.healthcaresystem.diagnosticcenter.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="test")
+@Table(name = "test")
 public class Test {
 
 	@Id
 	private String testId;
 	private String testName;
+
+	public Test() {
+
+	}
+
+	public Test(String testId, String testName) {
+
+		this.testId = testId;
+		this.testName = testName;
+	}
 
 	public String getTestId() {
 		return testId;

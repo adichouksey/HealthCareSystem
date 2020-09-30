@@ -7,7 +7,7 @@ import com.cg.healthcaresystem.diagnosticcenter.entities.Test;
 
 public class CenterDto {
 
-	private String centerId;
+	// private String centerId;
 	private String centerName;
 
 	private List<Test> listOfTests;
@@ -21,13 +21,11 @@ public class CenterDto {
 		this.centerName = centerName;
 	}
 
-	public String getCenterId() {
-		return centerId;
-	}
-
-	public void setCenterId(String centerId) {
-		this.centerId = centerId;
-	}
+	/*
+	 * public String getCenterId() { return centerId; }
+	 * 
+	 * public void setCenterId(String centerId) { this.centerId = centerId; }
+	 */
 
 	public List<Test> getListOfTests() {
 		return listOfTests;
